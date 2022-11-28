@@ -1,16 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
-//creating a node.
 struct node
 { 
     struct node* prev;
     int data;
     struct node* next;	
 };
-//intializing head.
+
 struct node* start=NULL;
-//-----For Singly Linked List-----
-//to insert a node at start.
+
 void insert_at_start_s()
 {
 	struct node* new=(struct node*) malloc(sizeof(struct node));
@@ -22,7 +20,6 @@ void insert_at_start_s()
 	start=new;
 	return;
 }
-//to insert a node at end.
 struct node* insert_at_end_s()
 {
 	struct node* new=(struct node*) malloc(sizeof(struct node));
@@ -45,7 +42,6 @@ struct node* insert_at_end_s()
 	temp->next=new;
 	return temp;
 }
-//to insert a node after a given data.
 struct node* insert_after_data_s()
 {
 	int d,prev_d;
@@ -69,7 +65,6 @@ struct node* insert_after_data_s()
 	printf("Data not found!\n");
 	return NULL;
 }
-//to insert a node at a position.
 struct node* insert_node_s()
 {
 	int pos,d,i;
@@ -95,7 +90,6 @@ struct node* insert_node_s()
 	temp->next=new;
 	return temp;
 }
-//to traverse the list.
 void traverse_list_s()
 {  
     struct node* temp=start;
@@ -107,13 +101,11 @@ void traverse_list_s()
     printf("\n");
     return;	
 }
-//to delete a node from start.
 void delete_from_start_s()
 {
 	start=start->next;
 	return;
 }
-//to delete a node from end.
 struct node* delete_from_end_s()
 {
 	if(start->next==NULL)
@@ -129,7 +121,6 @@ struct node* delete_from_end_s()
 	temp->next=NULL;
 	return temp;
 }
-//to delete a node containing given data.
 struct node* delete_data_s()
 {
 	int d;
@@ -153,7 +144,6 @@ struct node* delete_data_s()
 	printf("Data not found!\n");
 	return NULL;
 }
-//to delete a node from a position.
 struct node* delete_node_s()
 {
 	int pos,i;
@@ -172,7 +162,6 @@ struct node* delete_node_s()
 	temp->next=temp->next->next;
 	return temp;
 }
-//to search an item in the list.
 void search_item_s()
 {
 	int item,pos=1;
@@ -192,8 +181,6 @@ void search_item_s()
 	printf("Not Found in the List\n");
 	return;
 }
-//-----For Circular Linked List-----
-//to insert a node at start.
 void insert_at_start_c()
 {
     struct node* new=(struct node*) malloc(sizeof(struct node));
@@ -217,7 +204,7 @@ void insert_at_start_c()
 	start=new;
 	return;
 }
-//to insert a node at end.
+
 void insert_at_end_c()
 {
 	struct node* new=(struct node*) malloc(sizeof(struct node));
@@ -240,7 +227,6 @@ void insert_at_end_c()
 	new->next=start;
 	return;
 }
-//to insert a node after a given data.
 void insert_after_data_c()
 {
 	int d,prev_d;
@@ -264,7 +250,6 @@ void insert_after_data_c()
     temp->next=new;
     return;
 }
-//to delete a node from any position.
 void insert_node_c()
 {
 	int pos,d,i;
@@ -292,7 +277,6 @@ void insert_node_c()
 	    start=new;
 	return;
 }
-//to traverse the list.
 void traverse_list_c()
 {  
     struct node* temp=start;
@@ -305,7 +289,6 @@ void traverse_list_c()
     printf("\n");
     return;	
 }
-//to delete a node from start.
 void delete_from_start_c()
 {
 	if (start->next==start)
@@ -322,7 +305,7 @@ void delete_from_start_c()
 	temp->next=start;
 	return;
 }
-//to delete a node from end.
+
 void delete_from_end_c()
 {
 	if(start->next==start)
@@ -338,7 +321,6 @@ void delete_from_end_c()
 	temp->next=start;
 	return;
 }
-//to delete a node containing given data.
 void delete_data_c()
 {
 	int d;
@@ -361,7 +343,6 @@ void delete_data_c()
 	temp->next=temp->next->next;
     return;
 }
-//to delete a node from a position.
 void delete_node_c()
 {
 	int pos,i;
@@ -385,8 +366,6 @@ void delete_node_c()
 	temp->next=temp->next->next;
 	return;
 }
-
-//to search an item in the list.
 void search_item_c()
 {
 	int item,pos=1;
@@ -411,15 +390,13 @@ void search_item_c()
 	printf("Not Found in the List\n");
 	return;
 }
-//-----For Doubly Linked List-----
-//to insert a node at start.
 void insert_at_start_d()
 {
     insert_at_start_s();
     start->prev=NULL;
     return;
 }
-//to insert a node at end.
+
 void insert_at_end_d()
 {
 	struct node* p=insert_at_end_s();
@@ -431,14 +408,12 @@ void insert_at_end_d()
 	p->next->prev=p;
 	return;
 }
-//to insert a node after a given data.
 void insert_after_data_d()
 {
 	struct node* p=insert_after_data_s();
 	p->next->prev=p;
 	return;
 }
-//to insert a node at a position.
 void insert_node_d()
 {
 	struct node* p=insert_node_s();
@@ -450,13 +425,12 @@ void insert_node_d()
 	p->next->prev=p;
 	return;
 }
-//to traverse the list.
 void traverse_list_d()
 {  
     traverse_list_s();
     return;	
 }
-//to delete a node from start.
+
 void delete_from_start_d()
 {
 	delete_from_start_s();
@@ -466,7 +440,7 @@ void delete_from_start_d()
 	}
 	return;
 }
-//to delete a node from end.
+
 void delete_from_end_d()
 {
 	struct node* p=delete_from_end_s();
@@ -476,7 +450,7 @@ void delete_from_end_d()
 	}
 	return;	
 }
-//to delete a node containing given data.
+
 void delete_data_d()
 {
 	struct node* p=delete_data_s();
@@ -490,7 +464,6 @@ void delete_data_d()
     }
 	return;
 }
-//to delete a node from a position.
 void delete_node_d()
 {
 	struct node* p=delete_node_s();
@@ -504,13 +477,12 @@ void delete_node_d()
     }
 	return;
 }
-//to search an item.
 void search_item_d()
 {
 	search_item_s();
 	return;
 }
-//menu for operation on linked list.
+
 void menu()
 {	
     printf("Enter 1 to insert a node at start\n");
@@ -526,7 +498,7 @@ void menu()
 	printf("Enter 11 to Exit\n");
 	return;
 }
-//looping for selecting operations on singly linked list multiple times.
+
 void sel_opt_s()
 {
 	int ch;
